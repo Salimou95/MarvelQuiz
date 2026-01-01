@@ -69,3 +69,5 @@ Desktop.ini
 # Windows PowerShell history
 ConsoleHost_history.txt
 
+# Ignore Firebase config (may contain secrets)
+src/components/Firebase/firebaseConfig.js
