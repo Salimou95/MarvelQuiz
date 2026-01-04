@@ -1,7 +1,8 @@
 import {useState, useContext} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import {auth} from "../Firebase/firebaseConfig";
+import {setDoc, doc} from "firebase/firestore";
+import {auth,user} from "../Firebase/firebaseConfig";
 
 const Signup = (props) => {
 
@@ -19,19 +20,25 @@ const Signup = (props) => {
     const handleChange = (e) => {
         setLoginData({...loginData, [e.target.id]: e.target.value});
     }
+    // javascript
     const handleSubmit = (e) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, loginData.email, loginData.password)
-            .then(user => {
+            .then(authUser => {
+                return setDoc(user(authUser.user.uid), {
+                    pseudo: loginData.pseudo,
+                    email: loginData.email
+                });
+            })
+            .then(() => {
                 setLoginData({...data});
-                navigate("/welcome");
-
+                navigate("/");
             })
             .catch(error => {
                 setError(error.message);
                 setLoginData({...data});
             });
-    }
+    };
 
     console.log(loginData);
 
