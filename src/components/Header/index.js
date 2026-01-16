@@ -2,7 +2,7 @@ const Header = () => {
 
     return (
         <header className={"banner-container"}>
-            <h1><a>Marvel Quiz</a></h1>
+            <h1><span>Marvel Quiz</span></h1>
         </header>
     )
 }

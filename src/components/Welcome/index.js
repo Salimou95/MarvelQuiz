@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Logout from '../Logout'
 import Quiz from '../Quiz'
 
-const Welcome = props => {
+const Welcome = () => {
 
     const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const Welcome = props => {
         }
 
         return listener;
-    }, [userSession])
+    }, [userSession, navigate])
 
     return userSession === null ? (
         <Fragment>

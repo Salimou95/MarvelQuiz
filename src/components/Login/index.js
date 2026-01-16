@@ -11,6 +11,7 @@ const Login = () => {
     }
     const [loginData, setLoginData] = useState(data);
     const [error, setError] = useState(null);
+    const [btn, setBtn] = useState(false);
     const {email, password} = loginData;
 
 
@@ -20,9 +21,8 @@ const Login = () => {
         } else if (btn){
             setBtn(false);
         }
-    }, [data]);
+    }, [password, email, btn]);
 
-    const[btn, setBtn] = useState(false);
 
 
     const handleChange = (e) => {

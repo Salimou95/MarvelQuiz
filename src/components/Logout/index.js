@@ -21,7 +21,7 @@ const Logout = () => {
                     console.log("An error happened during sign-out:", error);
                 })
         }
-    }, [checked]);
+    }, [checked, navigate]);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);

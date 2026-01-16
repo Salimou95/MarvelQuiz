@@ -30,7 +30,6 @@ const ForgetPassword = props => {
 
             });
     }
-    const disabled = email === ""
 
     return (
         <div className={"signUpLoginBox"}>
