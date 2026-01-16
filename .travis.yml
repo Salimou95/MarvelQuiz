@@ -7,8 +7,12 @@ cache:
   directories:
     - node_modules
 
+before_install:
+  - rm -rf node_modules package-lock.json
+  - npm cache clean --force
+
 install:
-  - npm ci
+  - npm install
 
 script:
   - npm run build
